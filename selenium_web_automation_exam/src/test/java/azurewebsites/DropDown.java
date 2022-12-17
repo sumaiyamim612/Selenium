@@ -15,12 +15,20 @@ public class DropDown extends BaseDriver {
 	}
 	@Test (priority = 1)
 	public void DropDownTest() throws InterruptedException {
-		WebElement custom = driver.findElement(By.xpath("//option[contains(text(),'Select option')]"));
+		WebElement custom = driver.findElement(By.xpath("//label[contains(text(),'Where do you plan to travel this year?')]"));
+		WebElement option = driver.findElement(By.xpath("//select[@class='custom-select']"));
+		WebElement norway = driver.findElement(By.xpath("//option[contains(text(),'Norway')]"));
 		
-		Select select = new Select(custom);
-		
-		select.selectByValue("Noraway");
+		custom.click();
 		Thread.sleep(5000);
+		
+		option.click();
+		Thread.sleep(5000);
+		
+		norway.click();
+		Thread.sleep(5000);
+		
+		driver.quit();
 
 }
 }
